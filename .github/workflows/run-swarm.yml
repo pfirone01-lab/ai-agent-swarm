@@ -1,4 +1,4 @@
-name: AI Agent Swarm Pipeline
+name: ai-agent-swarm
 
 on:
   push:
