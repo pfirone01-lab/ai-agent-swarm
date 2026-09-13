@@ -33,12 +33,7 @@ def get_client():
     return _client
 
 
-def call_gemini(prompt: str) -> str:
-    time.sleep(CALL_DELAY)
-    response = get_client().models.generate_content(
-        model=MODEL,
-        contents=prompt,
-    )
+def call_gemini(prompt: str) -> str: time.sleep(CALL_DELAY) response = get_client().models.generate_content( model=MODEL, contents=prompt, ) return response.text Replace the whole thing with: def call_gemini(prompt: str) -> str: time.sleep(CALL_DELAY) max_attempts = 4 backoff = 20 # seconds, doubles each retry for attempt in range(1, max_attempts + 1): try: response = get_client().models.generate_content( model=MODEL, contents=prompt, ) return response.text except Exception as exc: message = str(exc) is_transient = any( marker in message for marker in ("503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED", "overloaded") ) if not is_transient or attempt == max_attempts: raise time.sleep(backoff) backoff *= 2 raise RuntimeError("Gemini call failed after retries.")
     return response.text
 
 
