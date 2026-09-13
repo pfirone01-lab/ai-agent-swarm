@@ -1,0 +1,55 @@
+:root {
+  --bg: #12141a;
+  --panel: #191c23;
+  --panel-raised: #1f232b;
+  --line: #2a2e38;
+  --text: #e9e7e1;
+  --text-muted: #8b8f9c;
+  --signal: #e8a544;
+  --signal-dim: #6b5730;
+  --done: #6fae8f;
+  --error: #d9694f;
+
+  --serif: "Fraunces", ui-serif, Georgia, serif;
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--signal-dim);
+  color: var(--text);
+}
+
+button {
+  font-family: inherit;
+}
+
+textarea:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
