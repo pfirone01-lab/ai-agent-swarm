@@ -28,7 +28,7 @@ app = FastAPI(title="AI Agent Swarm API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # local/portfolio tool - lock this down if you deploy it publicly
+    allow_origins=["https://pfirone01-lab.github.io"],  # local/portfolio tool - lock this down if you deploy it publicly
     allow_methods=["*"],
     allow_headers=["*"],
 )
