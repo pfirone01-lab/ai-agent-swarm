@@ -99,8 +99,3 @@ frontend and publishes it whenever you push to `main`.
   `frontend/vite.config.js` to match (`/<your-repo-name>/`).
 - Push to `main` (or run the workflow manually from the Actions tab). The
   site will be live at `https://<you>.github.io/<repo-name>/`.
-
-**Note on Render's free tier:** the service spins down after inactivity,
-so the first request after a while can take ~30s to wake it up before the
-pipeline even starts. Fine for a portfolio demo, worth mentioning if you
-link it somewhere.
